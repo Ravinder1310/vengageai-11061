@@ -1,0 +1,24 @@
+{
+    "contacts":[
+        {
+            "id":1,
+            "name":"Ravinder",
+            "phone":9728230665
+        },
+        {
+            "id":2,
+            "name":"Harish",
+            "phone":8199021922
+        },
+        {
+            "id":3,
+            "name":"Vishal",
+            "phone":8708798253
+        },
+        {
+            "id":4,
+            "name":"Deepak",
+            "phone":9728457242
+        }
+    ]
+}
