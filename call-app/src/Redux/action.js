@@ -18,7 +18,7 @@ const createContactsAction = () => {
     return {type:EDIT_CONTACTS_SUCCESS};
 }
 
-export const getContacts = (dispatch) => {
+export const getContacts = () => (dispatch) => {
     dispatch(getContactsRequestAction());
 
     axios.get(`http://localhost:${process.env.REACT_APP_JSON_SERVER_PORT}/contacts`).then((res)=>{

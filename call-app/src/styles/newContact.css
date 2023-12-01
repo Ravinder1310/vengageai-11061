@@ -1,0 +1,39 @@
+
+
+.createArea{
+    text-align: left;
+    padding: 20px 40px;
+    border: 1px solid black;
+    width: 70%;
+    margin: auto;
+}
+
+.createArea>h2{
+    margin-bottom: 10px;
+}
+
+.createArea>input{
+    margin-bottom: 10px;
+    width: 100%;
+    border-radius: 5px;
+    height: 35px;
+}
+
+.create{
+    text-align: center;
+}
+
+.create>button{
+    padding: 4px 10px;
+    font-size: 20px;
+    border-radius: 5px;
+    margin-top: 30px;
+}
+
+.create>button:hover{
+   cursor: pointer;
+}
+
+.dna{
+    margin-top: 30px;
+}

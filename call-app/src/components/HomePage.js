@@ -8,14 +8,14 @@ const HomePage = () => {
 
     const [toggle,setToggle] = useState(true);
 
-    const handleToggle = () => {
-        setToggle(prevToggle => !prevToggle);
+    const handleToggle = (value) => {
+        setToggle(value);
       };
 
   return (
     <div className='container'>
      {toggle? <Recents/>:<Contacts/>}
-     <Footer toggle={toggle} setToggle={handleToggle} />
+     <Footer setToggle={handleToggle} />
     </div>
   )
 }

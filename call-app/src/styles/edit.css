@@ -1,0 +1,35 @@
+
+
+.editArea{
+    text-align: left;
+    padding: 20px 40px;
+    border: 1px solid black;
+    width: 70%;
+    margin: auto;
+}
+
+.editArea>h2{
+    margin-bottom: 10px;
+}
+
+.editArea>input{
+    margin-bottom: 10px;
+    width: 100%;
+    border-radius: 5px;
+    height: 35px;
+}
+
+.change{
+    text-align: center;
+}
+
+.change>button{
+    padding: 4px 10px;
+    font-size: 20px;
+    border-radius: 5px;
+    margin-top: 30px;
+}
+
+.dna{
+    margin-top: 30px;
+}
