@@ -14,19 +14,28 @@ const getContactsFailureAction = () => {
 const editContactsAction = () => {
     return {type:EDIT_CONTACTS_SUCCESS};
 }
+const createContactsAction = () => {
+    return {type:EDIT_CONTACTS_SUCCESS};
+}
 
 export const getContacts = (dispatch) => {
     dispatch(getContactsRequestAction());
 
     axios.get(`http://localhost:${process.env.REACT_APP_JSON_SERVER_PORT}/contacts`).then((res)=>{
-        dispatch(getContactsSuccessAction(res.data))
+        dispatch(getContactsSuccessAction(res.data));
     }).catch((error)=>{
-        dispatch(getContactsFailureAction(error))
+        dispatch(getContactsFailureAction(error));
     })
 }
 
 export const editContacts = (id,contact) => (dispatch) => {
   return  axios.patch(`http://localhost:${process.env.REACT_APP_JSON_SERVER_PORT}/contacts/${id}`,contact).then(()=>{
-        dispatch(editContactsAction())
+        dispatch(editContactsAction());
     })
+}
+
+export const createContacts = (contact) => (dispatch) => {
+    return  axios.post(`http://localhost:${process.env.REACT_APP_JSON_SERVER_PORT}/contacts`,contact).then(()=>{
+          dispatch(editContactsAction());
+      })
 }
