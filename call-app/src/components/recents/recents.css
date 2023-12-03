@@ -1,6 +1,6 @@
 
 
-.contactCard{
+.recentCard{
     padding: 0px 30px;
     text-align: left;
     border: 1px solid grey;
@@ -10,29 +10,29 @@
     
 }
 
-.contacts{
+.recents{
     scroll-behavior: smooth;
 }
 
-.contactCard>div>a>h1{
+.recentCard>div>a>h1{
     margin-bottom: -10px;
 }
 
-.contactCard>div>a{
+.recentCard>div>a{
     text-decoration: none;
     color: black;
 }
 
-.editImage{
+.deleteImage{
     width: 40px;
     height: 40px;
 }
 
-.editImage:hover{
+.deleteImage:hover{
     cursor: pointer;
 }
 
-.contactHeading{
+.recentHeading{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -44,7 +44,7 @@
     height: 30px;
 }
 
-.contactHeading>img:hover{
+.recentHeading>img:hover{
     cursor: pointer;
 }
 
