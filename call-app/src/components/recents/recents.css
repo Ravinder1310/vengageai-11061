@@ -7,16 +7,16 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    
 }
+
 
 .recents{
     scroll-behavior: smooth;
 }
 
-.recentCard>div>a>h1{
+/* .recentCard>div>a>h1{
     margin-bottom: -10px;
-}
+} */
 
 .recentCard>div>a{
     text-decoration: none;

@@ -12,7 +12,7 @@ export const reducer=(state=initialState,{type,payload})=>{
     case GET_RECENT_CONTACTS_REQUEST:
         return {...state,isLoading:true};
     case GET_RECENT_CONTACTS_SUCCESS:
-        return {...state,isLoading:false,RECENTS:payload}
+        return {...state,isLoading:false,recents:payload}
     case GET_RECENT_CONTACTS_FAILURE:
         return {...state,isError:true}
     case DELETE_RECENT_CONTACTS_SUCCESS:

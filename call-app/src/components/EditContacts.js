@@ -6,15 +6,16 @@ import { Dna } from "react-loader-spinner";
 import "../styles/edit.css";
 
 const EditContacts = () => {
-  const { id } = useParams();
+  const { _id } = useParams();
   const contact = useSelector((store) => store.contactsReducer.contacts);
   const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
+  const [phone, setPhone] = useState();
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   useEffect(() => {
-    const contactData = contact.find((el) => el.id === +id);
+    dispatch(getContacts())
+    const contactData = contact.find((el) => el._id === +_id);
     if (contactData) {
       setName(contactData.name);
       setPhone(contactData.phone);
@@ -26,13 +27,13 @@ const EditContacts = () => {
       name:name,
       phone:phone,
     };
-    dispatch(editContacts(id, newData)).then(() => dispatch(getContacts()));
-    navigate("/");
+    dispatch(editContacts(_id, newData)).then(() => dispatch(getContacts()));
+    navigate("/contact");
   };
 
   return (
     <div className="edit">
-      <h1>Edit Contact {id}</h1>
+      <h1>Edit Contact</h1>
       <div className="editArea">
         <h2>Name</h2>
         <input

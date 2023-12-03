@@ -14,7 +14,7 @@ const Recents = () => {
 
   useEffect(() => {
     dispatch(getRecentContacts());
-  }, []);
+  }, [recents.length]);
 
   return (
     <div className="recents">
@@ -29,7 +29,7 @@ const Recents = () => {
       </div>
       {recents.length > 0 ? (
         recents.map((el) => (
-          <div className="recentCard" key={el.id}>
+          <div className="recentCard" key={el._id}>
             <div>
               <a href={`tel://${el.phone}`}>
                 <h1>{el.name}</h1>
@@ -37,7 +37,7 @@ const Recents = () => {
             </div>
             
               <img
-              onClick={() => handleDelete(el.id)}
+              onClick={handleDelete(el._id)}
                 className="deleteImage"
                 src="/images/delete.png"
                 alt="error"

@@ -21,9 +21,9 @@ const deleteRecentContactsAction = () => {
 export const getRecentContacts = () => (dispatch) => {
     dispatch(getRecentContactsRequestAction());
 
-    axios.get(`https://motionless-bass-tam.cyclic.app/api/v1/contacts/get-contact`).then((res)=>{
+    axios.get(`https://motionless-bass-tam.cyclic.app/api/v1/recents/get-contact`).then((res)=>{
         console.log("API Response:", res.data);
-        dispatch(getRecetContactsSuccessAction(res.data));
+        dispatch(getRecetContactsSuccessAction(res.data.recents));
     }).catch((error)=>{
         console.error("API Error:", error);
         dispatch(getRecentContactsFailureAction(error));
@@ -38,7 +38,7 @@ export const addRecentContacts = (contact) => (dispatch) => {
 }
 
 export const deleteRecentContacts = (id) => (dispatch) => {
-    return  axios.patch(`https://motionless-bass-tam.cyclic.app/api/v1/recents/delete-contact/${id}`).then(()=>{
+    return  axios.delete(`https://motionless-bass-tam.cyclic.app/api/v1/recents/delete-contact/${id}`).then(()=>{
           dispatch(deleteRecentContactsAction());
       })
-  }
+}

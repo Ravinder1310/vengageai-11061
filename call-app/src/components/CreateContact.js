@@ -18,7 +18,7 @@ const CreateContact = () => {
           phone,
         };
         dispatch(createContacts(newData)).then(() => dispatch(getContacts()));
-        navigate("/");
+        navigate("/contact");
       };
 
   return (

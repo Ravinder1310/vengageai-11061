@@ -21,16 +21,18 @@ const deleteContactsAction = () => {
     return {type:DELETE_CONTACTS_SUCCESS};
 }
 
-export const getContacts = () => (dispatch) => {
+export const getContacts = () => async(dispatch) => {
     dispatch(getContactsRequestAction());
 
-    axios.get(`https://motionless-bass-tam.cyclic.app/api/v1/contacts/get-contact`).then((res)=>{
-        console.log("API Response:", res.data);
-        dispatch(getContactsSuccessAction(res.data));
-    }).catch((error)=>{
-        console.error("API Error:", error);
+    try {
+        const res = await axios.get('https://motionless-bass-tam.cyclic.app/api/v1/contacts/get-contact');
+        // console.log('API Response:', res.data);
+        dispatch(getContactsSuccessAction(res.data.contacts));
+    } catch (error) {
+        console.error('API Error:', error);
         dispatch(getContactsFailureAction(error));
-    })
+    }
+
 }
 
 export const editContacts = (id,contact) => (dispatch) => {
@@ -46,7 +48,8 @@ export const createContacts = (contact) => (dispatch) => {
 }
 
 export const deleteContacts = (id) => (dispatch) => {
-    return  axios.patch(`https://motionless-bass-tam.cyclic.app/api/v1/contacts/delete-contact/${id}`).then(()=>{
+    
+    return  axios.delete(`https://motionless-bass-tam.cyclic.app/api/v1/contacts/delete-contact/${id}`).then(()=>{
           dispatch(deleteContactsAction());
       })
   }

@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getContacts } from "../Redux/action";
+import { deleteContacts, getContacts } from "../Redux/action";
 import { Link } from "react-router-dom";
 import "../styles/contacts.css";
 import { addRecentContacts } from "../Redux/recents/action";
@@ -8,14 +8,23 @@ import { addRecentContacts } from "../Redux/recents/action";
 const Contacts = () => {
   const dispatch = useDispatch();
   const contacts = useSelector((store) => store.contactsReducer.contacts);
-
+  const [data,setData] = useState([]);
+// console.log(contacts);
   const handleRecents = (el) => {
     dispatch(addRecentContacts(el))
+  }
+  
+  const handleDelete = (id) => {
+    dispatch(deleteContacts(id))
   }
 
   useEffect(() => {
     dispatch(getContacts());
-  }, []);
+    if(contacts.length>0){
+      setData(contacts.contacts)
+    }
+    console.log(contacts);
+  }, [contacts.length]);
 
   return (
     <div className="contacts">
@@ -30,7 +39,7 @@ const Contacts = () => {
       </div>
       {contacts.length > 0 ? (
         contacts.map((el) => (
-          <div className="contactCard" key={el.id}>
+          <div className="contactCard" key={el._id}>
             <div onClick={() => handleRecents(el)}>
               <a href={`tel://${el.phone}`}>
                 <h1>{el.name}</h1>
@@ -39,7 +48,13 @@ const Contacts = () => {
                 <h3>{el.phone}</h3>
               </a>
             </div>
-            <Link to={`/contact/${el.id}/edit`}>
+            <img
+            onClick={() => handleDelete(el._id)}  
+                className="editImage"
+                src="/images/delete.png"
+                alt="error"
+              />
+            <Link to={`/contact/edit/${el._id}`}>
               <img
                 className="editImage"
                 src="/images/editing.png"

@@ -11,7 +11,7 @@ const MainRoutes = () => {
     <Routes>
             <Route path='/'element={<HomePage/>}/>
             <Route path='/contact/'element={<Contacts/>}/>
-            <Route path='/contact/:id/edit'element={<EditContacts/>}/>
+            <Route path='/contact/edit/:id'element={<EditContacts/>}/>
             <Route path='/contact/create'element={<CreateContact/>}/>
             <Route path='/*'element={<h3>Page Not Found</h3>}/>
     </Routes>
